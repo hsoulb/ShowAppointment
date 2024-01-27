@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Liste des RDV</title>
+</head>
+<body>
+<div class="container">
+    <h2>Liste des RDV</h2>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">CODE</th>
+            <th scope="col">CAPTION</th>
+            <th scope="col">PRIX</th>
+            <th scope="col">DESIGNATION</th>
+            <th scope="col">COND</th>
+            <th scope="col">FAMILLE</th>
+            <th scope="col">EAN13</th>
+            <th scope="col">CODE HOSIX</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in patients %}
+        <tr>
+        <td>{{row.0}}</td>
+        <td>{{row.1}}</td>
+        <td>{{row.2}}</td>
+        <td>{{row.3}}</td>
+            <td>{{row.4}}</td>
+            <td>{{row.5}}</td>
+            <td>{{row.6}}</td>
+            <td>{{row.7}}</td>
+
+    </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
