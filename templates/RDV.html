@@ -14,53 +14,41 @@
 <div class="container">
     <h2>Liste des RDV</h2>
 </div>
-<div class="container">
-      <h1>Pages</h1>
-      <hr>
-      {% block content %}{% endblock %}
-    </div>
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
 
-    {% block scripts %}
-     <script>
-    $(document).ready(function () {
-      $('#data').DataTable();
-    });
-  </script>
+<form method="post">
+  <input type="text" name="search" required>
+  <input type="submit" value="search">
+</form>
 
-    {% endblock %}
+{% if patients | length != 0 %}
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th scope="col">CODE</th>
-            <th scope="col">CAPTION</th>
-            <th scope="col">PRIX</th>
-            <th scope="col">DESIGNATION</th>
-            <th scope="col">COND</th>
-            <th scope="col">FAMILLE</th>
-            <th scope="col">EAN13</th>
-            <th scope="col">CODE HOSIX</th>
-
+            <th scope="col">EXAMEN</th>
+            <th scope="col">SERVICE</th>
+            <th scope="col">HOPITAL</th>
+            <th scope="col">APPOINTMENT_DATE</th>
         </tr>
     </thead>
     <tbody>
         {% for row in patients %}
         <tr>
-        <td>{{row.0}}</td>
-        <td>{{row.1}}</td>
-        <td>{{row.2}}</td>
-        <td>{{row.3}}</td>
-            <td>{{row.4}}</td>
-            <td>{{row.5}}</td>
-            <td>{{row.6}}</td>
-            <td>{{row.7}}</td>
+        <td>{{row.4}}</td>
+        <td>{{row.5}}</td>
+        <td>{{row.6}}</td>
+        <td>{{row.7}}</td>
 
     </tr>
         {% endfor %}
     </tbody>
 </table>
+
+{% else %}
+<div>No search results.</div>
+{% endif %}
 
 </body>
 </html>
